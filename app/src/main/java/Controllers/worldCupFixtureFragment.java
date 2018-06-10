@@ -43,7 +43,7 @@ public class worldCupFixtureFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String header_name = "X-Auth-Token";
     private static final String header_value = "8f2157cce11f426fb29924c6d7ce4e27";
-    private final String timeFrame = "n7";
+    private final String timeFrame = "n6";
 
     private RecyclerView recyclerView;
 
@@ -81,7 +81,7 @@ public class worldCupFixtureFragment extends Fragment {
 
 
         APIInterface apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<worldCupFixtureResponse> call = apiInterface.getFixtures();
+        Call<worldCupFixtureResponse> call = apiInterface.getFixtures(header_name,header_value,timeFrame);
 
         final ProgressDialog dialog;
         dialog = new ProgressDialog(getContext());

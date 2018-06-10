@@ -18,4 +18,6 @@
     <string name="time">Time</string>
     <string name="equals">:</string>
     <string name="matchtime">Time</string>
+    <string name="matchdate">Date</string>
+    <string name="date">Date</string>
 </resources>
