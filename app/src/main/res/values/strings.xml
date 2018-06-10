@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Football Fixtures</string>
+    <string name="matchday">Matchday =</string>
+    <string name="current_matchday">cmd</string>
+    <string name="slash">/</string>
+    <string name="total_matchday">tmd</string>
+    <string name="total_teams">Total Teams =</string>
+    <string name="tt">tt</string>
+    <string name="total_games">Total games = </string>
+    <string name="tg">tg</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="match">Match</string>
+    <string name="team1">Team1</string>
+    <string name="vs">VS</string>
+    <string name="team2">Team2</string>
+    <string name="time">Time</string>
+    <string name="equals">:</string>
+    <string name="matchtime">Time</string>
+</resources>
