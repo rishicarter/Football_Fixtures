@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Football Fixtures</string>
+    <string name="app_name">WorldCup Fixtures</string>
     <string name="matchday">Matchday =</string>
     <string name="current_matchday">cmd</string>
     <string name="slash">/</string>

@@ -2,6 +2,8 @@ package Controllers;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -38,6 +40,10 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         calendarView = (CalendarView)view.findViewById(R.id.worldCupCalender);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            calendarView.setFocusedByDefault(false);
+        }
+        calendarView.setFocusedMonthDateColor(Color.RED);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayofmonth) {
