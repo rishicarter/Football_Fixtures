@@ -15,6 +15,8 @@ public interface APIInterface {
     @GET("fixtures")
     Call<worldCupFixtureResponse> getFixtures();
     @GET("fixtures")
+    Call<worldCupFixtureResponse> getFixtures(@Header("key") String key,@Header("value") String value,@Query("timeFrameStart")String tfs,@Query("timeFrameEnd")String tfe);
+    @GET("fixtures")
     Call<worldCupFixtureResponse> getFixtures(@Query("timeFrame")String tf);
     @GET("fixtures")
     Call<worldCupFixtureResponse> getFixtures(@Header("key") String key,@Header("value") String value);

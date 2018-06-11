@@ -16,6 +16,12 @@ public class worldCupFixtureResponse {
     @SerializedName("_links")
     @Expose
     private Links links;
+    @SerializedName("timeFrameStart")
+    @Expose
+    private String timeFrameStart;
+    @SerializedName("timeFrameEnd")
+    @Expose
+    private String timeFrameEnd;
     @SerializedName("count")
     @Expose
     private Integer count;
@@ -31,6 +37,22 @@ public class worldCupFixtureResponse {
         this.links = links;
     }
 
+    public String getTimeFrameStart() {
+        return timeFrameStart;
+    }
+
+    public void setTimeFrameStart(String timeFrameStart) {
+        this.timeFrameStart = timeFrameStart;
+    }
+
+    public String getTimeFrameEnd() {
+        return timeFrameEnd;
+    }
+
+    public void setTimeFrameEnd(String timeFrameEnd) {
+        this.timeFrameEnd = timeFrameEnd;
+    }
+
     public Integer getCount() {
         return count;
     }
@@ -38,7 +60,6 @@ public class worldCupFixtureResponse {
     public void setCount(Integer count) {
         this.count = count;
     }
-
 
     public List<worldCupFixtureModel> getFixtures() {
         return fixtures;

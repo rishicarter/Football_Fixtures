@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import Abstract.MainAbstract;
+import Controllers.MainFragment;
 
 public class MainActivity extends MainAbstract {
 
@@ -12,6 +13,6 @@ public class MainActivity extends MainAbstract {
     @Override
     protected Fragment createFragment() {
         //todo : add fragment
-        return null;
+        return new MainFragment();
     }
 }
