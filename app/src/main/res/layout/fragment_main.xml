@@ -1,51 +1,60 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="64dp"
-    android:paddingBottom="64dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="8dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:background="@drawable/worldcup"
     tools:context="Controllers.MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
-
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
-        <RelativeLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_gravity="center"
+            app:fabSize="auto"
+            android:src="@android:drawable/ic_menu_info_details" />
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/text1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:textSize="16dp"
-                android:paddingBottom="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="@string/worldCup"/>
-            <CalendarView
-                android:layout_below="@+id/text1"
-                android:id="@+id/worldCupCalender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:firstDayOfWeek="5"
-                android:maxDate="@string/max_date"
-                android:minDate="@string/min_date"/>
-        </RelativeLayout>
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:textSize="16dp"
+                    android:paddingBottom="16dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="@string/worldCup"/>
+                <CalendarView
+                    android:layout_below="@+id/text1"
+                    android:id="@+id/worldCupCalender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:firstDayOfWeek="5"
+                    android:maxDate="@string/max_date"
+                    android:minDate="@string/min_date"/>
+            </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 </FrameLayout>

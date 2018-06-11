@@ -1,11 +1,15 @@
 package Controllers;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,22 +31,31 @@ import java.util.Date;
 public class MainFragment extends Fragment {
 
     CalendarView calendarView;
+    FloatingActionButton floatingActionButton;
 
     public MainFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-
+        floatingActionButton = (FloatingActionButton)view.findViewById(R.id.floatingActionButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createDialog();
+            }
+        });
         calendarView = (CalendarView)view.findViewById(R.id.worldCupCalender);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            calendarView.setFocusedByDefault(false);
-        }
         calendarView.setFocusedMonthDateColor(Color.RED);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -66,6 +79,19 @@ public class MainFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void createDialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle("World Cup Fixures! 2018");
+        alertDialog.setMessage("Click a a date on Calender --> Fixtures of that day");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 
 }
