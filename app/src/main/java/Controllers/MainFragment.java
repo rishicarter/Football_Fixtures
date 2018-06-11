@@ -84,8 +84,8 @@ public class MainFragment extends Fragment {
     private void createDialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
         alertDialog.setTitle("World Cup Fixures! 2018");
-        alertDialog.setMessage("Click a a date on Calender --> Fixtures of that day");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+        alertDialog.setMessage("Click a a date to know the Fixtures!");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
