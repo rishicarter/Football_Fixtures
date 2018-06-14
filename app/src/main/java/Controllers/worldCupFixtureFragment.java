@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.footballfixtures.rishi.footballfixtures.MainActivity;
@@ -22,11 +23,13 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.List;
 
 import Adapters.worldCupFixtureAdapter;
 import Model.worldCupFixtureModel;
 import Response.worldCupFixtureResponse;
+import UtilityClass.convertDateTime;
 import cz.msebera.android.httpclient.Header;
 import rest.APIClient;
 import rest.APIInterface;
@@ -48,7 +51,7 @@ public class worldCupFixtureFragment extends Fragment {
     public static final String DATE_SELECT = "date_select";
     private String timeFrameStart = null;
     private String timeFrameEnd = null;
-
+    private TextView date;
     private RecyclerView recyclerView;
 
     // TODO: Rename and change types and number of parameters
@@ -81,6 +84,7 @@ public class worldCupFixtureFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 1);;
         recyclerView.setLayoutManager(layoutManager);
+        date = (TextView)view.findViewById(R.id.date);
 
         Log.d("timeframestart", "onCreateView: "+timeFrameStart);
         Log.d("timeframeend", "onCreateView: "+timeFrameEnd);
@@ -103,6 +107,7 @@ public class worldCupFixtureFragment extends Fragment {
                 if (response.body().getCount()!=0) {
                     Log.d("Response", "onResponse: " + String.valueOf(response));
                     List<worldCupFixtureModel> worldCupFixtureModelList = response.body().getFixtures();
+                    getdate(worldCupFixtureModelList.get(0).getDate());
                     recyclerView.setAdapter(new worldCupFixtureAdapter(worldCupFixtureModelList, getContext()));
                     Toast.makeText(getContext(), "Successfull", Toast.LENGTH_LONG).show();
                 }
@@ -122,6 +127,18 @@ public class worldCupFixtureFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void getdate(String datecal) {
+        String[] datetime = null;
+        String datestr=null;
+        try {
+            datetime = convertDateTime.convertDateTime(datecal);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        datestr = datetime[0];
+        date.setText(datestr);
     }
 
 }

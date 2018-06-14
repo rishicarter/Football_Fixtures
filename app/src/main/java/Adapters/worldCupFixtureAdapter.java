@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import UtilityClass.convertDateTime;
 
@@ -47,10 +48,19 @@ public class worldCupFixtureAdapter extends RecyclerView.Adapter<worldCupFixture
         }
         date = datetime[0];
         time = datetime[1];
+        Log.d("positions", "onBindViewHolder: "+position);
         holder.team1.setText(worldCupFixtureModelList.get(position).getHomeTeamName());
         holder.team2.setText(worldCupFixtureModelList.get(position).getAwayTeamName());
-        holder.date.setText(date);
+        //holder.date.setText(date);
+        if (worldCupFixtureModelList.get(position).getStatus().equals("TIMED"))
         holder.time.setText(time);
+        else {
+            /*setlayoutEnabled(holder.layoutTime,false);
+            setlayoutEnabled(holder.layoutResult,true);
+            holder.result.setText((CharSequence) worldCupFixtureModelList.get(position).getResult());*/
+            holder.time.setText(worldCupFixtureModelList.get(position).getStatus());
+            Log.d("Staus", "onBindViewHolder: "+worldCupFixtureModelList.get(position).getStatus());
+        }
     }
 
     @Override
@@ -60,7 +70,8 @@ public class worldCupFixtureAdapter extends RecyclerView.Adapter<worldCupFixture
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView team1,team2,time,date;
+        private TextView team1,team2,time,date,result;
+        private LinearLayout layoutTime, layoutResult;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -69,7 +80,18 @@ public class worldCupFixtureAdapter extends RecyclerView.Adapter<worldCupFixture
             team2 = (TextView)itemView.findViewById(R.id.team2);
             date = (TextView)itemView.findViewById(R.id.date);
             time = (TextView)itemView.findViewById(R.id.time);
-
+            result = (TextView)itemView.findViewById(R.id.result);
+            layoutResult = (LinearLayout)itemView.findViewById(R.id.layoutResult);
+            layoutTime = (LinearLayout)itemView.findViewById(R.id.layoutTime);
+            setlayoutEnabled(layoutResult,false);
+            //date.setText(worldCupFixtureModelList.get(0).getDate());
+        }
+    }
+    // ans = hide or show
+    private void setlayoutEnabled(LinearLayout layout, boolean ans) {
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            child.setEnabled(ans);
         }
     }
 }

@@ -23,4 +23,6 @@
     <string name="min_date">06/14/2018</string>
     <string name="max_date">07/15/2018</string>
     <string name="worldCup">Fifa World Cup 2018, Russia</string>
+    <string name="num">#</string>
+    <string name="matchResult">Result</string>
 </resources>
