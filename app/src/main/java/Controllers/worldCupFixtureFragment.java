@@ -1,5 +1,6 @@
 package Controllers;
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -109,11 +110,13 @@ public class worldCupFixtureFragment extends Fragment {
                     List<worldCupFixtureModel> worldCupFixtureModelList = response.body().getFixtures();
                     getdate(worldCupFixtureModelList.get(0).getDate());
                     recyclerView.setAdapter(new worldCupFixtureAdapter(worldCupFixtureModelList, getContext()));
-                    Toast.makeText(getContext(), "Successfull", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(), "Successfull", Toast.LENGTH_LONG).show();
                 }
                 else{
                     Toast.makeText(getContext(), "No Fixtures on this Day!", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(getActivity(), MainActivity.class);
+                    /*android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
+                    manager.popBackStack(null, android.support.v4.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);*/
                     startActivity(i);
                 }
             }

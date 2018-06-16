@@ -25,4 +25,5 @@
     <string name="worldCup">Fifa World Cup 2018, Russia</string>
     <string name="num">#</string>
     <string name="matchResult">Result</string>
+    <string name="live">LIVE</string>
 </resources>

@@ -32,6 +32,7 @@ public class MainFragment extends Fragment {
 
     CalendarView calendarView;
     FloatingActionButton floatingActionButton;
+    public static final String datePattern = "yyyy-MM-dd";
 
     public MainFragment() {
         // Required empty public constructor
@@ -60,9 +61,9 @@ public class MainFragment extends Fragment {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayofmonth) {
-                Toast.makeText(getContext(),year + "/0" + (month+1) + "/" + dayofmonth, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),year + "/0" + (month+1) + "/" + dayofmonth, Toast.LENGTH_LONG).show();
                 String dateselectedwoformat = String.valueOf(year)+"-"+String.valueOf(month+1)+"-"+String.valueOf(dayofmonth);
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat format = new SimpleDateFormat(datePattern);
                 String dateselected = null;
                 try {
                     Date date = format.parse(dateselectedwoformat);
@@ -93,5 +94,6 @@ public class MainFragment extends Fragment {
                 });
         alertDialog.show();
     }
+
 
 }
